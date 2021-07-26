@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,13 +27,12 @@ SECRET_KEY = 'django-insecure-5=&97bp2at2(i6=j=r1y$2&3+-%)qlram9ie5=#zm+-(^-ivhi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['salmanstore12.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    
     'phone_field',
     'mycv.apps.MycvConfig',
     'django.contrib.admin',
@@ -77,12 +77,32 @@ WSGI_APPLICATION = 'resume.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'd50mlq9ihiir2',
+
+        'USER': 'iywiwwherndtqm',
+
+        'PASSWORD': '49fd68b1b3488d0e614e61506427296f7de0eab248654e69f1dc8b2f1fcd5f9f',
+
+        'HOST': 'ec2-34-193-101-0.compute-1.amazonaws.com',
+
+        'PORT': '5432',
+
     }
+
 }
+
 
 
 # Password validation
@@ -132,9 +152,10 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+django_heroku.settings(locals())
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 
 STATIC_ROOT='staticfiles'
-STATIC_URL='/static/'
+
