@@ -43,7 +43,6 @@ class Skill(models.Model):
 class Contact(models.Model):
     name=models.CharField(max_length=50)
     email=models.EmailField()
-    subject=models.CharField(max_length=100)
     message=models.TextField()
     
 class Project(models.Model):

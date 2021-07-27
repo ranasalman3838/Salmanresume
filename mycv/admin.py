@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-class AboutAdmin(admin.ModelAdmin):
-    list_display= ('profile_img', 'name','city','phone','gmail','description', 'linkedinlink','githublink','twitterlink','facebooklink','fiverlink','cv_upload')
+# class AboutAdmin(admin.ModelAdmin):
+#     list_display= ('profile_img', 'name','city','phone','gmail','description', 'linkedinlink','githublink','twitterlink','facebooklink','fiverlink','cv_upload')
     
 class ExpAdmin(admin.ModelAdmin):
     list_display=('designation','organization_name','description','start_date','end_date')
@@ -15,7 +15,7 @@ class SkillAdmin(admin.ModelAdmin):
     list_display=('skill_name','skill_percent')
     
 class ContactAdmin(admin.ModelAdmin):
-    list_display=('name','email','subject','message')
+    list_display=('name','email','message')
     
 class ProjectAdmin(admin.ModelAdmin):
     list_display=('project_name','project_description','project_link','project_video')
@@ -24,7 +24,7 @@ class ProjectAdmin(admin.ModelAdmin):
 # class IntAdmin(admin.ModelAdmin):
 #     list_display=('description')
     
-admin.site.register(About,AboutAdmin)
+admin.site.register(About)
 admin.site.register(Experience,ExpAdmin)
 admin.site.register(Education,EduAdmin)
 admin.site.register(Interest)
